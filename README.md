@@ -1,5 +1,5 @@
 # wrapODR
-This is a simple wrapper around the scipy.odr library (orthogonal distance regression).
+This is a simple wrapper around the [scipy.odr](https://docs.scipy.org/doc/scipy/reference/odr.html) library (orthogonal distance regression).
 
 ## Installation
 This package is pip installable using:
