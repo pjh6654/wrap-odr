@@ -3,7 +3,7 @@ This is a simple wrapper around the scipy.odr library (orthogonal distance regre
 
 ## Installation
 This package is pip installable using:
-'pip install -i https://test.pypi.org/simple/ wrapODR-pjh6654==0.0.3'
+`pip install -i https://test.pypi.org/simple/ wrapODR-pjh6654==0.0.3`
 
 ## Usage
 Below is test code using wrapODR to fit a sigmoid with uncertainies in x and y.
