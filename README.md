@@ -46,8 +46,8 @@ params, error, bestfit, chi_vals = lf.fit(g, x, y, sigma_x, sigma_y, beta0=beta0
 # Plot and print results of the fit
 print("B[0] = {:.3f} +/- {:.3f}".format(params[0], error[0]))
 print("B[1] = {:.3f} +/- {:.3f}".format(params[1], error[1]))
-print("Chi-Squared: {}".format(chi_vals[0]))
-print("Reduced Chi-Squared: {}".format(chi_vals[1]))
+print("Chi-Squared: {:.3f}".format(chi_vals[0]))
+print("Reduced Chi-Squared: {:.3f}".format(chi_vals[1]))
 plt.errorbar(x, y, xerr=sigma_x, yerr=sigma_y, fmt='.', capsize=3)
 plt.plot(*bestfit)
 plt.show()
