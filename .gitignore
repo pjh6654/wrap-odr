@@ -3,3 +3,4 @@ venv/
 .idea/
 *.pyc
 *.png
+*.egg-info/
