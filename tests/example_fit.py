@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from labfit import fit
+from src.labfit import fit
 
 # Random seed
 np.random.seed(1)
