@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from src import fit
+from src.wrapODR.labfit import fit
 
 # Random seed
 np.random.seed(1)
