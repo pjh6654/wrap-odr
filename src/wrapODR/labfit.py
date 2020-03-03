@@ -1,5 +1,6 @@
 # Author: Peter Hart <pjh6654@rit.edu>
 
+import sys
 import numpy as np
 from scipy.odr import ODR, Model, RealData
 
@@ -12,7 +13,8 @@ def _chi_values(f, x, y, yerr, params):
         chi = np.sum(((y - f(params, x)) / yerr) ** 2)
         red_chi = chi / (len(x) - len(params))
     else:
-        print("There is no y error to calculated chi-squared values")
+        print("There is no y error to calculate chi-squared values!\n"
+              "Chi-squared values returned as None.", file=sys.stderr)
         chi = red_chi = None
     return [chi, red_chi]
 
