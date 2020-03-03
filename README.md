@@ -13,13 +13,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 from wrapODR import labfit as lf
 
-# Random seed
+# Random seed (for consistency between tests)
 np.random.seed(1)
 
-
+# Define the function you want to fit
 def g(B, x):
     return B[0] / (1 + np.exp(-(x - B[1])))
-
 
 #
 # Test Parameters
@@ -33,7 +32,7 @@ xmin = -10.0
 xmax = 10.0
 xarray = np.linspace(xmin, xmax, n)
 
-# generate data
+# generate data with x and y uncertainties
 x = np.copy(xarray) + np.random.normal(0.0, sigma_x, n)
 y = g([a, b], xarray) + np.random.normal(0.0, sigma_y, n)
 
@@ -41,13 +40,15 @@ y = g([a, b], xarray) + np.random.normal(0.0, sigma_y, n)
 beta0 = [6, 1]
 
 # fit using both x and y uncertainty
-params, error, bestfit, chi_vals = lf.fit(g, x, y, sigma_x, sigma_y, beta0=beta0)
+params, error, bestfit, chi_vals = lf.fit(g, x, y, xerr=sigma_x, yerr=sigma_y, beta0=beta0)
 
-# Plot and print results of the fit
+# Print results of the fit
 print("B[0] = {:.3f} +/- {:.3f}".format(params[0], error[0]))
 print("B[1] = {:.3f} +/- {:.3f}".format(params[1], error[1]))
 print("Chi-Squared: {:.3f}".format(chi_vals[0]))
 print("Reduced Chi-Squared: {:.3f}".format(chi_vals[1]))
+
+# Plot the original data and the best fit curve
 plt.errorbar(x, y, xerr=sigma_x, yerr=sigma_y, fmt='.', capsize=3)
 plt.plot(*bestfit)
 plt.show()
