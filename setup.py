@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="wrapODR-pjh6654",
-    version="0.0.4",
+    version="0.0.5",
     author="Peter Hart",
     author_email="pjh6654@rit.edu",
     description="A simple wrapper for scipy.odr",

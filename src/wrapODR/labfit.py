@@ -19,7 +19,7 @@ def _chi_values(f, x, y, yerr, params):
     return [chi, red_chi]
 
 
-def fit(f, xdata, ydata, xerr=None, yerr=None, beta0=None, bf_res=500):
+def fit(f, xdata, ydata, xerr=None, yerr=None, beta0=None, bf_res=500, maxit=50):
     """
     Fits a general function f(params, x) to data (xdata, ydata),
     accounting for uncertainties in both the independent and dependent
@@ -44,6 +44,8 @@ def fit(f, xdata, ydata, xerr=None, yerr=None, beta0=None, bf_res=500):
         Array of size M containing initial guesses for parameter values.
     bf_res:
         Int defining the number of points in the best fit array.
+    maxit:
+        Int specifying the maximum number of iterations to perform
 
     Returns
     -------
@@ -61,7 +63,7 @@ def fit(f, xdata, ydata, xerr=None, yerr=None, beta0=None, bf_res=500):
     # create the model using the general function and fit the data using scipy.odr
     mod = Model(f)
     data = RealData(xdata, ydata, xerr, yerr)
-    result = ODR(data, mod, beta0).run()
+    result = ODR(data, mod, beta0, maxit=maxit).run()
     # extract the estimated parameters and parameter errors
     params = result.beta
     param_error = result.sd_beta

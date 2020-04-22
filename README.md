@@ -3,7 +3,7 @@ This is a simple wrapper around the [scipy.odr](https://docs.scipy.org/doc/scipy
 
 ## Installation
 This package is pip installable using:
-`pip install -i https://test.pypi.org/simple/ wrapODR-pjh6654==0.0.4`
+`pip install -i https://test.pypi.org/simple/ wrapODR-pjh6654==0.0.5`
 
 ## Usage
 Below is test code using wrapODR to fit a sigmoid with uncertainies in x and y.
